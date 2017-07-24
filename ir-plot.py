@@ -7,13 +7,17 @@ def alternate():
         yield n
         n = (n + 1) % 2
 
-def pulses(n):
-    num = 0
-    while num < n:
-        yield num
-        num += 1
+def pulses(data):
+    i = 0
+    total = 0
+    while i < len(data):
+        yield total
+        total += data[i]
+        i += 1
 
-sp = plt.step(list(pulses(9)),
-              list(islice(alternate(), 0, 9)))
+data = [100, 250, 250, 100, 700, 200, 250, 100, 100]
+
+sp = plt.step(list(pulses(data)),
+              list(islice(alternate(), 0, len(data))))
 
 plt.show()
