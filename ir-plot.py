@@ -25,4 +25,5 @@ for line in sys.stdin.readlines():
 sp = plt.step(list(pulses(data)),
               list(islice(alternate(), 0, len(data))))
 
+plt.ylim(-1, 2)
 plt.show()
